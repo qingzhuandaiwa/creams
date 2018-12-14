@@ -1,0 +1,99 @@
+# 公共头
+header: &head
+  Authorization: Bearer XXXXXXXX
+
+# 选项
+options:
+  async: false          # 多线程支持
+  poolSize: 10          # 指定线程池大小
+  autoClean: true       # 请求数据源前,自动清除相关表内容
+  autoGenTable: true    # 自动创建表结构
+  printTable: false     # 打印表结构
+
+# 获取TOKEN地址
+tokenUrl: https://api.creams.io/web/users/login
+
+# 新建园区
+parkUrl: https://api.creams.io/web/buildings/portfolios
+
+# 定义连接
+connection:
+  url: jdbc:mysql://47.104.210.228/creams2?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+  username: ty
+  password: ty@2018.com
+
+# 定义workgo园区
+workgoConnection:
+  url: jdbc:mysql://49.4.80.47/main_model_datas?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+  username: dsj
+  password: qv5zFdaUpxc2'hm
+
+# 定义过滤链
+# scope说明:
+#   request - 在每个请求前调用
+#   source  - 在每个数据源执行前调用
+#   requestAfter - 在每个请求之后调用
+#   sourceAfter  - 在每个数据源执行之后调用
+filters:
+  -
+    class: com.topwave.plugin.TokenGetter
+    scope: request
+  -
+    class: com.topwave.plugin.ReadyForRquest
+    scope: source
+
+# 定义数据源
+source:
+  -
+    uri: https://api.creams.io/web/tenants
+    table: tenant
+    startNode: items
+    dict: "[{\"buildingName\": \"string\", \"businessInfo\": { \"address\": \"string\", \"approvalTime\": \"2018-07-27T06:46:43.468Z\", \"birthCountry\": \"string\", \"businessAddress\": \"string\", \"businessIndustry\": \"string\", \"businessScope\": \"string\", \"businessTerm\": \"2018-07-27T06:46:43.468Z\", \"companyType\": \"string\", \"district\": \"string\", \"englishName\": \"string\", \"foundingTime\": \"2018-07-27T06:46:43.468Z\", \"id\": 0, \"industry\": \"string\", \"legalPerson\": \"string\", \"operatingState\": \"string\", \"organizationCode\": \"string\", \"registeredCapital\": \"string\", \"registrationAuthority\": \"string\", \"registrationNumber\": \"string\", \"staffSize\": \"string\", \"taxpayerIdNumber\": \"string\", \"unifiedSocialCreditCode\": \"string\" }, \"certificateNumber\": \"string\", \"contactJoin\": \"string\", \"contacts\": [ { \"email\": \"string\", \"id\": 0, \"name\": \"string\", \"tel\": \"string\" } ], \"createdDate\": \"2018-07-27T06:46:43.468Z\", \"email\": \"string\", \"hasCurrentContract\": true, \"id\": 0, \"industry\": \"string\", \"invoiceInfo\": { \"account\": \"string\", \"address\": \"string\", \"bank\": \"string\", \"buyerName\": \"string\", \"id\": 0, \"invoiceInfoTel\": \"string\", \"taxpayerIdNumber\": \"string\", \"tel\": \"string\" }, \"name\": \"string\", \"startRentDate\": \"2018-07-27T06:46:43.468Z\", \"status\": \"NORMAL\", \"tagJoin\": \"string\", \"tags\": [ \"string\" ], \"tel\": \"string\" } ]"
+    header:
+      <<: *head
+  -
+    uri: https://api.creams.io/web/buildings
+    table: house
+    startNode: items
+    dict: "{\"id\": 5780, \"name\": \"fctest-楼宇一\", \"imageUrl\": \"/2018/07/lb90ee6o1kka5znsbbuvh6hkzc83f5vb.png\", \"address\": \"test-位置一\", \"promotionTel\": \"13322222222\", \"alertDaysNum\": 1, \"province\": { \"id\": 10, \"name\": \"江苏省\" }, \"city\": { \"id\": 108, \"name\": \"南京市\" }, \"area\": { \"id\": 1104, \"name\": \"鼓楼区\" }, \"owner\": \"fc\", \"constructionArea\": \"1111\", \"landArea\": \"2222\", \"purpose\": \"test-用途一\", \"buildupDate\": \"2018/07/10\", \"buildingAreaSize\": 200, \"areaSizeTotal\": 200, \"contractSettings\": { \"id\": 23734, \"depositUnit\": \"MONTH\", \"calculatePrecision\": \"RESULT\", \"calculateType\": \"DAY\", \"dayNumberPerYear\": 365, \"intervalMonth\": 3, \"payInAdvanceDay\": 3, \"payInAdvanceType\": \"DAY\", \"priceUnit\": \"D\", \"contractNumberPrefix\": \"test-hetongbiaohao-yyyy\", \"spaceUnit\": \"P\", \"unitPricePrecision\": 2, \"openApproval\": true, \"leaseDivideRoleType\": \"NORMAL\", \"monthPriceConvertRoleType\": \"CONVERT_BY_YEAR\" }, \"propertySettings\": { \"propertyType\": \"OFFICE\", \"payType\": 3, \"propertyFee\": 3, \"propertyUnit\": \"D\", \"propertyCalculateType\": \"MONTH\", \"energyCalculateType\": \"MONTH\", \"dayNumberPerYear\": 365, \"payInAdvanceDay\": 3, \"payInAdvanceType\": \"WORKDAY\", \"depositUnit\": \"MONEY\", \"energyPayType\": 3, \"energyFee\": 3, \"energyUnit\": \"D\", \"energyPayInAdvanceDay\": 3, \"energyPayInAdvanceType\": \"SPECIFY\", \"calculatePrecision\": \"RESULT\", \"unitPricePrecision\": 2, \"leaseDivideRoleType\": \"NORMAL\", \"monthPriceConvertRoleType\": \"CONVERT_BY_YEAR\" }, \"recycleContractNo\": false, \"incomeGoal\": [ { \"year\": \"2018\", \"price\": 10000 } ], \"invoiceCommodities\": [ { \"billType\": \"租金\", \"code\": \"1111111111222222222\", \"name\": \"fctest-税率信息货物名称\", \"tax\": 0.2, \"defaultTag\": false, \"promotionInclusive\": false, \"promotionPolicy\": null } ], \"amortizationWayEnum\": \"RENT_ITEM\", \"billInWayEnum\": \"ACCRUAL_BASIS\" }"
+    header:
+      <<: *head
+  -
+    uri: https://api.creams.io/web/buildings/rooms
+    table: buildingRoom
+    startNode: items
+    dict: "[{\"id\": 0, \"imageUrl\": \"string\", \"name\": \"string\", \"roomAreaSize\": 0, \"rooms\": [ { \"areaSize\": 0, \"floor\": \"string\", \"id\": 0, \"price\": 0, \"priceUnit\": \"D\", \"roomNumber\": \"string\", \"unit\": \"string\" } ] } ]"
+    header:
+      <<: *head
+  -
+    uri: https://api.creams.io/web/buildings/{house.id}/floors
+    table: floors
+    startNode: items
+    dict: "[{\"active\": true, \"areaSize\": 0, \"floor\": \"string\",\"buildingId\": \"string\", \"id\": 0, \"queue\": 0, \"roomCount\": 0 }]"
+    header:
+      <<: *head
+  -
+    uri: https://api.creams.io/web/buildings/portfolios/list
+    method: post
+    table: portfolio
+    startNode: items
+    dict: "[{\"buildings\": [ { \"address\": \"怀德街\", \"alertDaysNum\": 0, \"amortizationWayEnum\": \"RENT_ITEM\", \"area\": { \"id\": 0, \"name\": \"string\" }, \"areaSizeTotal\": 1.23, \"billInWayEnum\": \"ACCRUAL_BASIS\", \"buildingAreaSize\": 20000, \"buildupDate\": \"string\", \"city\": { \"id\": 0, \"name\": \"string\" }, \"constructionArea\": \"string\", \"contractSettings\": 1.23, \"id\": 1, \"imageUrl\": \"http://xxx.jpg\", \"incomeGoal\": [ { \"price\": 0, \"year\": \"string\" } ], \"invoiceCommodities\": [ { \"billType\": \"string\", \"code\": \"string\", \"defaultTag\": true, \"name\": \"string\", \"promotionInclusive\": true, \"promotionPolicy\": \"string\", \"tax\": 0 } ], \"landArea\": \"string\", \"name\": \"天安门广场\", \"owner\": \"string\", \"promotionTel\": \"0571-88888888\", \"propertySettings\": 1.23, \"province\": { \"id\": 0, \"name\": \"string\" }, \"purpose\": \"string\", \"recycleContractNo\": true } ], \"id\": 1, \"name\": \"新建集合\" } ]"
+    header:
+      <<: *head
+  -
+    uri: https://api.creams.io/web/v2/contracts
+    table: contract
+    startNode: items
+    dict: "[{\"areaSize\": 0, \"auditStatusName\": \"string\", \"buildingId\": 0, \"buildingName\": \"string\", \"buildingType\": \"OFFICE\", \"contractNo\": \"string\", \"createdBy\": { \"id\": 0, \"name\": \"string\" }, \"creationStatus\": \"NONE\", \"dayNumberForYear\": 0, \"deposit\": 0, \"depositAmount\": 0, \"depositUnitEnum\": \"MONTH\", \"endDate\": \"2018-07-30T02:12:53.775Z\", \"firstPayTermPrice\": 0, \"followName\": \"string\", \"hasRenewed\": true, \"hasTerminated\": true, \"id\": 0, \"industryName\": \"string\", \"lastComment\": { \"content\": \"string\", \"createdBy\": { \"id\": 0, \"name\": \"string\" }, \"createdDate\": \"2018-07-30T02:12:53.775Z\", \"id\": 0, \"lastModifiedBy\": { \"id\": 0, \"name\": \"string\" }, \"lastModifiedDate\": \"2018-07-30T02:12:53.775Z\", \"objectId\": 0, \"objectType\": \"CONTRACT\" }, \"legalPerson\": \"string\", \"monetaryUnit\": \"string\", \"nullificationStatus\": \"NONE\", \"overDueFineTerm\": { \"actualAmount\": 0, \"rate\": 0, \"theoryAmount\": 0, \"upperLimitRate\": 0 }, \"priceUnit\": \"D\", \"renewContract\": true, \"rooms\": [ { \"areaSize\": 0, \"floor\": \"string\", \"price\": 0, \"roomId\": 0, \"roomNumber\": \"string\" } ], \"showStatus\": \"NORMAL\", \"signDate\": \"2018-07-30T02:12:53.775Z\", \"signer\": \"string\", \"spaceUnit\": \"P\", \"startDate\": \"2018-07-30T02:12:53.775Z\", \"tenantId\": 0, \"tenantName\": \"string\", \"terminationStatus\": \"NONE\", \"totalTheoryPayMoney\": 0 } ]"
+    params:
+      buildingIds: "{house.id}"
+    header:
+      <<: *head
+  -
+    uri: https://api.creams.io/web/v2/contracts/{contract.id}
+    table: contractDetail
+    startNode: items
+    idMap: #处理id映射关系
+      buildingsOnContractDetail: buildingId
+    header:
+      <<: *head

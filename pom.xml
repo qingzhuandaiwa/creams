@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.topwave</groupId>
+    <artifactId>json.extract</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <url>http://gefeel.com</url>
+
+    <properties>
+        <yaml-version>1.13</yaml-version>
+        <dbutils-version>1.7</dbutils-version>
+        <junit-version>4.12</junit-version>
+        <jackson-version>2.9.6</jackson-version>
+        <durid-version>1.1.10</durid-version>
+        <okhttp-version>3.10.0</okhttp-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${yaml-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils -->
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${dbutils-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.25</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${durid-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--<version>1.2.16</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.31</version>
+		</dependency>
+
+
+        <dependency>
+            <groupId>com.jfinal</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>8.1.8</version>
+            <!--
+            此处的 scope 值为 compile 仅为支持 IDEA 下启动项目
+            打 war 包时需要改成 provided，以免将一些无用的 jar 打进去
+            -->
+            <!--<scope>compile</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.3.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.44</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.29</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${dbutils-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.31</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jfinal</groupId>
+            <artifactId>jfinal</artifactId>
+            <version>3.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jfinal</groupId>
+            <artifactId>cos</artifactId>
+            <version>2017.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <build>
+        <finalName>incremental-extract</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <!-- Configuration of the archiver -->
+                    <archive>
+                        <!--生成的jar中，不要包含pom.xml和pom.properties这两个文件-->
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <!-- Manifest specific configuration -->
+                        <manifest>
+                            <!--是否要把第三方jar放到manifest的classpath中-->
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.topwave.app.Application</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- 拷贝lib文件 -->
+            <!-- 并没有真正打入jar包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.5</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.topwave.app.Application</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>  
+                  <execution>  
+                    <id>make-assembly</id>  
+                    <phase>package</phase>   
+                    <goals>  
+                        <goal>single</goal>  
+                    </goals>  
+                  </execution>  
+                </executions>
+            </plugin>
+            
+            <plugin>  
+			    <groupId>org.apache.maven.plugins</groupId>  
+			    <artifactId>maven-surefire-plugin</artifactId>  
+			    <version>2.12.4</version>  
+			    <configuration>  
+			        <skipTests>true</skipTests>  
+			    </configuration>  
+			</plugin>  
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <!--用混淆插件混淆代码-->
+            <!--<plugin>-->
+                <!--<groupId>com.github.wvengen</groupId>-->
+                <!--<artifactId>proguard-maven-plugin</artifactId>-->
+                <!--<version>2.0.11</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>proguard</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<attach>true</attach>-->
+                    <!--<attachArtifactClassifier>pg</attachArtifactClassifier>-->
+                    <!--&lt;!&ndash; attach 的作用是在 install 与 deploy 时将生成的 pg 文件也安装与部署 &ndash;&gt;-->
+                    <!--<options> &lt;!&ndash; 详细配置方式参考 ProGuard 官方文档 &ndash;&gt;-->
+                        <!--<option>-ignorewarnings</option> &lt;!&ndash;忽略所有告警&ndash;&gt;-->
+                        <!--<option>-dontshrink</option>   &lt;!&ndash;不做 shrink &ndash;&gt;-->
+                        <!--<option>-dontoptimize</option> &lt;!&ndash;不做 optimize &ndash;&gt;-->
+                        <!--<option>-dontskipnonpubliclibraryclasses </option>-->
+                        <!--<option>-dontskipnonpubliclibraryclassmembers </option>-->
+                        <!--<option>-dontnote </option>-->
+
+                        <!--<option>-keepattributes Signature</option>-->
+
+                        <!--&lt;!&ndash;保持源码名与行号（异常时有明确的栈信息），注解（默认会过滤掉所有注解，会影响框架的注解）&ndash;&gt;-->
+                        <!--<option>-keepattributes Exceptions,InnerClasses,*Annotation*,Signature,LineNumberTable</option>-->
+
+                        <!--<option>-keep class com.yinkun.etl.Application</option>-->
+                        <!--<option>-keepclassmembers class com.yinkun.etl.Application { *;}</option>-->
+                    <!--</options>-->
+                    <!--&lt;!&ndash;指定混淆的jar包，我这里是将上一步输出的jar包进行混淆&ndash;&gt;-->
+                    <!--<injar>ApiETL.jar</injar>-->
+                    <!--&lt;!&ndash;指定输出的jar包名&ndash;&gt;-->
+                    <!--<outjar>${project.build.finalName}-pg</outjar>-->
+                    <!--<obfuscate>true</obfuscate>-->
+                    <!--&lt;!&ndash; 添加依赖，必须添加，不然会报一些莫名错误&ndash;&gt;-->
+                    <!--<libs>-->
+                        <!--<lib>${java.home}/lib/rt.jar</lib>-->
+                        <!--<lib>${java.home}/lib/jce.jar</lib>-->
+                        <!--&lt;!&ndash;<lib>D:/workspace3/datacube/lib/apache-axiom-api-1.2.7.jar</lib>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<lib>D:/workspace3/datacube/lib/axis2-kernel-1.7.1.jar</lib>&ndash;&gt;-->
+                    <!--</libs>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+</project>
